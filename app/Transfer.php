@@ -5,12 +5,12 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Transaction extends Model
+class Transfer extends Model
 {
     use SoftDeletes;
 
-    public function category()
+    public function transferable()
     {
-        return $this->belongsTo(Category::class, 'category_id');
+        return $this->morphTo();
     }
 }

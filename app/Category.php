@@ -14,8 +14,8 @@ class Category extends Model
         return $this->belongsTo(Account::class, 'account_id');
     }
 
-    public function transactions()
+    public function transfers()
     {
-        return $this->hasMany(Transaction::class, 'category_id');
+        return $this->morphMany(Transfer::class, 'transferable');
     }
 }

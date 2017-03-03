@@ -13,4 +13,9 @@ class Wallet extends Model
     {
         return $this->belongsTo(Account::class, 'account_id');
     }
+
+    public function transfers()
+    {
+        return $this->morphMany(Transfer::class, 'transferable');
+    }
 }
